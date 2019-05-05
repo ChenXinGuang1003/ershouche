@@ -1,0 +1,46 @@
+<?php
+	$b_table="simcms_ad,simcms_admin,simcms_admingroup,simcms_area,simcms_assesscars,simcms_brand,simcms_buycars,simcms_cars,simcms_channel,simcms_dealer_category,simcms_feedback,simcms_filmstrip,simcms_friendlink,simcms_inquiry,simcms_keywords,simcms_keywords_category,simcms_member,simcms_member_dealer,simcms_member_feedback,simcms_member_news,simcms_model,simcms_news,simcms_news_category,simcms_page,simcms_page_sorts,simcms_permission,simcms_selfdefine,simcms_selfdefine_value,simcms_settings,simcms_subscribe";
+	$tb[simcms_ad]=1;
+$tb[simcms_admin]=1;
+$tb[simcms_admingroup]=1;
+$tb[simcms_area]=1;
+$tb[simcms_assesscars]=1;
+$tb[simcms_brand]=13;
+$tb[simcms_buycars]=1;
+$tb[simcms_cars]=1;
+$tb[simcms_channel]=1;
+$tb[simcms_dealer_category]=1;
+$tb[simcms_feedback]=1;
+$tb[simcms_filmstrip]=1;
+$tb[simcms_friendlink]=1;
+$tb[simcms_inquiry]=1;
+$tb[simcms_keywords]=1;
+$tb[simcms_keywords_category]=1;
+$tb[simcms_member]=1;
+$tb[simcms_member_dealer]=1;
+$tb[simcms_member_feedback]=1;
+$tb[simcms_member_news]=1;
+$tb[simcms_model]=1;
+$tb[simcms_news]=1;
+$tb[simcms_news_category]=1;
+$tb[simcms_page]=1;
+$tb[simcms_page_sorts]=1;
+$tb[simcms_permission]=1;
+$tb[simcms_selfdefine]=1;
+$tb[simcms_selfdefine_value]=1;
+$tb[simcms_settings]=1;
+$tb[simcms_subscribe]=1;
+
+	$b_baktype=0;
+	$b_filesize=300;
+	$b_bakline=500;
+	$b_autoauf=1;
+	$b_dbname="car";
+	$b_stru=1;
+	$b_strufour=0;
+	$b_dbchar="auto";
+	$b_beover=0;
+	$b_insertf="replace";
+	$b_autofield=",,";
+	$b_bakdatatype=0;
+	?>
