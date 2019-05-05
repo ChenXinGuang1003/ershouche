@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2015-10-21 19:32:21
+<?php /* Smarty version 2.6.18, created on 2019-05-05 15:48:46
          compiled from m/search.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -31,7 +31,8 @@
 	选车中心
 </div>
 <div class="topsearch mt10">
-	<div class="box">
+	<span style="float: left;font-size: 15px;height: 43px;line-height: 43px;color: red;">&nbsp;秦皇岛&nbsp;</span>
+	<div style="float: left" class="box">
 		<form method="get" action="index.php">
 			<input type="text" name="k" class="keyword remindAuto" value="搜索车源，如宝马、奔驰"><input type="hidden" name="m" value="search"><input type="hidden" name="a" value="search"><input type="submit" class="but01" value="">
 		</form>

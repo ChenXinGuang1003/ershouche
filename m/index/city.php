@@ -6,6 +6,7 @@ setMyCookie("city",intval($_GET['cid']),time()+COOKIETIME );
 header("location:index.php");
 exit;
 }
+header("Content-type: text/html; charset=utf-8");
 if(empty($_COOKIE['city']) or $_COOKIE['city']=="undefined"){
 $ip = getIp();
 $cityname = get_cityname($ip);
@@ -27,5 +28,6 @@ else{
 $citydata = $db->row_select_one('area',"id='".$_COOKIE['city']."'",'name');
 $cityname = "<a href='index.php?m=citylist'>".$citydata['name']."</a>";
 }
-echo "document.write(\"".$cityname."\");";
+echo "document.write(\"".$cityname."\");";
+//echo document.write($citydata['name']);
 ?>

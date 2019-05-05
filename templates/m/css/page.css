@@ -28,8 +28,8 @@ a:hover{color:#f60;}
 
 /*顶部搜索*/
 .topsearch{width:100%;height:50px;}
-.topsearch .box{margin-left:auto;margin-right:auto;width:300px;padding:5px 10px;height:43px;background:url(../img/search.png) no-repeat;}
-.topsearch .box .keyword{width:250px;padding:6px 8px;background:#fff;border:none;font-family:"微软雅黑";font-size:14px;}
+.topsearch .box{margin-left:auto;margin-right:auto;width:283px;padding:5px 10px;height:43px;background:url(../img/search.png) no-repeat;}
+.topsearch .box .keyword{width:226px;padding:6px 8px;background:#fff;border:none;font-family:"微软雅黑";font-size:14px;}
 .topsearch .box .but01{width:30px;height:33px;border:none;background:none;font-family:"微软雅黑";color:#fff;font-size:14px;}
 .modelbox a{color:#666;}
 .main{margin-left:auto;margin-right:auto;padding:0 10px;background:#eee;}

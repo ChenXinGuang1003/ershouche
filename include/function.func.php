@@ -401,19 +401,65 @@ return (substr($ip,0,$p));
 return ($ip);
 }
 }
-function getIp() {
-if (isset($_SERVER['HTTP_CLIENT_IP']) &&($ip = getFirstIpFromList($_SERVER['HTTP_CLIENT_IP'])) &&strpos($ip,"unknown") === false &&getHost($ip) != $ip) {
-return $ip;
-}elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR']) &&$ip = getFirstIpFromList($_SERVER['HTTP_X_FORWARDED_FOR']) &&isset($ip) &&!empty($ip) &&strpos($ip,"unknown") === false &&getHost($ip) != $ip) {
-return $ip;
-}elseif (isset($_SERVER['HTTP_CLIENT_IP']) &&strlen(getFirstIpFromList($_SERVER['HTTP_CLIENT_IP'])) != 0) {
-return getFirstIpFromList($_SERVER['HTTP_CLIENT_IP']);
-}else if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) &&strlen (getFirstIpFromList($_SERVER['HTTP_X_FORWARDED_FOR'])) != 0) {
-return getFirstIpFromList($_SERVER['HTTP_X_FORWARDED_FOR']);
-}else {
-return getFirstIpFromList($_SERVER['REMOTE_ADDR']);
+//function getIp() {
+//if (isset($_SERVER['HTTP_CLIENT_IP']) &&($ip = getFirstIpFromList($_SERVER['HTTP_CLIENT_IP'])) &&strpos($ip,"unknown") === false &&getHost($ip) != $ip) {
+//return $ip;
+//}elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR']) &&$ip = getFirstIpFromList($_SERVER['HTTP_X_FORWARDED_FOR']) &&isset($ip) &&!empty($ip) &&strpos($ip,"unknown") === false &&getHost($ip) != $ip) {
+//return $ip;
+//}elseif (isset($_SERVER['HTTP_CLIENT_IP']) &&strlen(getFirstIpFromList($_SERVER['HTTP_CLIENT_IP'])) != 0) {
+//return getFirstIpFromList($_SERVER['HTTP_CLIENT_IP']);
+//}else if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) &&strlen (getFirstIpFromList($_SERVER['HTTP_X_FORWARDED_FOR'])) != 0) {
+//return getFirstIpFromList($_SERVER['HTTP_X_FORWARDED_FOR']);
+//}else {
+//return getFirstIpFromList($_SERVER['REMOTE_ADDR']);
+//}
+//}
+
+// 新添加的代码
+function getIp()
+{
+    static $realip;
+    if (isset($_SERVER)){
+        if (isset($_SERVER["HTTP_X_FORWARDED_FOR"])){
+            $realip = $_SERVER["HTTP_X_FORWARDED_FOR"];
+        } else if (isset($_SERVER["HTTP_CLIENT_IP"])) {
+            $realip = $_SERVER["HTTP_CLIENT_IP"];
+        } else {
+            $realip = $_SERVER["REMOTE_ADDR"];
+        }
+    } else {
+        if (getenv("HTTP_X_FORWARDED_FOR")){
+            $realip = getenv("HTTP_X_FORWARDED_FOR");
+        } else if (getenv("HTTP_CLIENT_IP")) {
+            $realip = getenv("HTTP_CLIENT_IP");
+        } else {
+            $realip = getenv("REMOTE_ADDR");
+        }
+    }
+    return $realip;
+
 }
+
+function getCity($ip = '')
+{
+    if($ip == ''){
+        $url = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json";
+        $ip=json_decode(file_get_contents($url),true);
+        $data = $ip;
+    }else{
+        $url="http://ip.taobao.com/service/getIpInfo.php?ip=".$ip;
+        $ip=json_decode(file_get_contents($url));
+        if((string)$ip->code=='1'){
+            return false;
+        }
+        $data = (array)$ip->data;
+    }
+
+    return $data;
 }
+
+//添加代码结束===
+
 function get_cityname($ip) {
 $arr_ip = convertIp($ip);
 $cityname = $arr_ip['city'];
@@ -577,5 +623,6 @@ return stripos($types,$ext);
 }else{
 return false;
 }
-}
+}
+
 ?>
