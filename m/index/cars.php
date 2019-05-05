@@ -54,5 +54,4 @@ $samepricecarlist = get_carlist(0,$where,'5','listtime desc');
 $tpl ->assign('samepricecars',$samepricecarlist);
 }
 $tpl ->display('m/cars.html');
-
 ?>
