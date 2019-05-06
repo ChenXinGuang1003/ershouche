@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2019-05-05 14:35:46
+<?php /* Smarty version 2.6.18, created on 2019-05-06 10:06:28
          compiled from m/city.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -28,7 +28,7 @@
     foreach ($_from as $this->_tpl_vars['city']):
 ?>
 			<li><a href="index.php?m=city&cid=<?php echo $this->_tpl_vars['city']['id']; ?>
-"><?php echo $this->_tpl_vars['city']['name']; ?>
+"><?php echo $this->_tpl_vars['city']['city']; ?>
 </a></li>
 		<?php endforeach; endif; unset($_from); ?>
 		</ul>

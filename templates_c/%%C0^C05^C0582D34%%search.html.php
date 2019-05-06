@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2019-05-05 15:48:46
+<?php /* Smarty version 2.6.18, created on 2019-05-06 16:01:25
          compiled from m/search.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,6 +17,8 @@
 /templates/m/js/jquery.js" type="text/javascript"></script>
 	<script type="text/javascript" src="<?php echo $this->_tpl_vars['weburl']; ?>
 /templates/m/js/jquery.textRemindAuto-1.0.js"></script>
+	<script src="<?php echo $this->_tpl_vars['weburl']; ?>
+/templates/m/js/TouchSlide.1.1.js"></script>
 	<script type="text/javascript">
     $(function() {
 		$(".remindAuto").textRemindAuto();
@@ -31,13 +33,46 @@
 	选车中心
 </div>
 <div class="topsearch mt10">
-	<span style="float: left;font-size: 15px;height: 43px;line-height: 43px;color: red;">&nbsp;秦皇岛&nbsp;</span>
+	<a href="index.php?m=citylist" style="float: left;font-size: 15px;height: 43px;line-height: 43px;color: red;">&nbsp;<?php echo $this->_tpl_vars['cityname']; ?>
+&nbsp;</a>
+
 	<div style="float: left" class="box">
 		<form method="get" action="index.php">
 			<input type="text" name="k" class="keyword remindAuto" value="搜索车源，如宝马、奔驰"><input type="hidden" name="m" value="search"><input type="hidden" name="a" value="search"><input type="submit" class="but01" value="">
 		</form>
 	</div>
 </div>
+
+<div class="indexmain mt10">
+	<div id="focus" class="focus">
+		<div class="hd">
+			<ul></ul>
+		</div>
+		<div class="bd">
+			<ul>
+				<?php $_from = $this->_tpl_vars['film_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['film']):
+?>
+				<li><a href="#"><img _src="<?php echo $this->_tpl_vars['webdomain']; ?>
+<?php echo $this->_tpl_vars['film']['pic']; ?>
+" src="images/blank.png" /></a></li>
+				<?php endforeach; endif; unset($_from); ?>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+        TouchSlide({
+            slideCell:"#focus",
+            titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+            mainCell:".bd ul",
+            effect:"left",
+            autoPlay:true,//自动播放
+            autoPage:true, //自动分页
+            switchLoad:"_src" //切换加载，真实图片路径为"_src"
+        });
+	</script>
+</div>
+
 <!--头部结束-->
 <!--主体-->
 <div class="orderbox">

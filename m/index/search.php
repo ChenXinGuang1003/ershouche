@@ -154,5 +154,11 @@ $button_basic = $Page ->mobilephone_button_basic();
 $tpl ->assign('button_basic',$button_basic);
 $tpl ->assign('allnum',$listnum);
 $tpl ->assign('carslist',$list);
+
+$tpl ->assign('film_list',get_filmstrip(2));
+$tpl ->assign('cityname' ,111);
+
+include('city.php');
+
 $tpl ->display('m/search.html');
 ?>
